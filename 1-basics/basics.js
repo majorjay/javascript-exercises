@@ -5,34 +5,37 @@
  * - Only add or edit code in areas marked with ✏️
  */
 
-describe("basics", function() {
+describe("basics", function () {
     "use strict";
 
-    describe("Example test", function() {
-        it("should run without errors", function() {
+    describe("Example test", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            var someVariable = true;
             ////////////////////////////////////////////////////////////////////
 
             expect(someVariable).to.equal(true);
         });
     });
 
-    describe("Some variable declarations are hoisted", function() {
-        it("should run without errors", function() {
+    describe("Some variable declarations are hoisted", function () {
+        it("should run without errors", function () {
             expect(someVariable).to.equal(undefined);
 
             ////////////////////////////////////////////////////////////////////
             // Declare "someVariable" in way so that the declaration is hoisted.
             // ✏️ ADD CODE HERE ✏️
 
+
+            var someVariable = undefined;
+
             ////////////////////////////////////////////////////////////////////
         });
     });
 
-    describe("Other variables declarations are NOT hoisted", function() {
-        it("should run without errors", function() {
+    describe("Other variables declarations are NOT hoisted", function () {
+        it("should run without errors", function () {
             expect(() => {
                 someVariable; // someVariable should NOT yet be defined here
             }).to.throw("Cannot access 'someVariable' before initialization");
@@ -40,19 +43,20 @@ describe("basics", function() {
             ////////////////////////////////////////////////////////////////////
             // Declare "someVariable" in way so that the declaration is NOT hoisted.
             // ✏️ ADD CODE HERE ✏️
-
+            let someVariable = undefined
             ////////////////////////////////////////////////////////////////////
 
             expect(someVariable).to.equal(undefined);
         });
     });
 
-    describe("Undefined or null?", function() {
-        it("should run without errors", function() {
+    describe("Undefined or null?", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
 
             ////////////////////////////////////////////////////////////////////
+            const someVariable = undefined;
 
             expect(typeof someVariable).to.equal("undefined");
             // Notice the difference:
@@ -63,14 +67,14 @@ describe("basics", function() {
         });
     });
 
-    describe("Avoid primitive wrappers", function() {
-        it("should run without errors", function() {
+    describe("Avoid primitive wrappers", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // 🚨 PLEASE NOTE 🚨:
             // new Number() creates a "primitive wrapper". It's not an actual number, it's an object.
             // In 99.999% of all cases, this is a bug and not actually intended. Fix it! :)
             // ✏️ FIX THAT BUG ✏️
-            const someNumber = new Number(3);
+            const someNumber = Number(3);
             ////////////////////////////////////////////////////////////////////
 
             // The primitive wrapper passes the loose quality check because it will be casted to a number.
@@ -81,14 +85,14 @@ describe("basics", function() {
         });
     });
 
-    describe("Writing big numbers without typing a lot zeros", function() {
-        it("should run without errors", function() {
+    describe("Writing big numbers without typing a lot zeros", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // We're searching for a big number written in way that we don't have to
             // write all the zeros.
             // Write it as a string so that the .length property can be checked.
             // ✏️ EDIT NEXT LINE ✏️
-            const bigNumber = "...";
+            const bigNumber = "1e9";
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof bigNumber).to.equal("string");
@@ -98,14 +102,14 @@ describe("basics", function() {
         });
     });
 
-    describe("Trailing zeros can be omitted", function() {
-        it("should run without errors", function() {
+    describe("Trailing zeros can be omitted", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // We're searching for a floating point number
             // written in way that we don't have to write all the zeros AFTER the point.
             // Write it as a string so that the .length property can be checked.
             // ✏️ EDIT NEXT LINE ✏️
-            const someNumber = "...";
+            const someNumber = "1e1";
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof someNumber).to.equal("string");
@@ -115,14 +119,14 @@ describe("basics", function() {
         });
     });
 
-    describe("Leading zeros can also be omitted", function() {
-        it("should run without errors", function() {
+    describe("Leading zeros can also be omitted", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // We're searching for a floating point number
             // written in way that we don't have to write all the zeros BEFORE the point.
             // Write it as a string so that the .length property can be checked.
             // ✏️ EDIT NEXT LINE ✏️
-            const someNumber = "...";
+            const someNumber = ".2";
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof someNumber).to.equal("string");
@@ -131,10 +135,13 @@ describe("basics", function() {
         });
     });
 
-    describe("Create an object with a property", function() {
-        it("should run without errors", function() {
+    describe("Create an object with a property", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
+            const object = {
+                someProperty: 1
+            };
 
             ////////////////////////////////////////////////////////////////////
 
@@ -143,15 +150,15 @@ describe("basics", function() {
         });
     });
 
-    describe("Set a property to undefined", function() {
-        it("should run without errors", function() {
+    describe("Set a property to undefined", function () {
+        it("should run without errors", function () {
             const object = {
                 someProperty: 1
             };
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            this.someProperty = undefined;
             ////////////////////////////////////////////////////////////////////
 
             // object.someProperty is undefined...
@@ -162,15 +169,15 @@ describe("basics", function() {
         });
     });
 
-    describe("Delete a property from an object", function() {
-        it("should run without errors", function() {
+    describe("Delete a property from an object", function () {
+        it("should run without errors", function () {
             const object = {
                 someProperty: 1
             };
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            delete object.someProperty;
             ////////////////////////////////////////////////////////////////////
 
             // object.someProperty is undefined...
@@ -181,13 +188,13 @@ describe("basics", function() {
         });
     });
 
-    describe("Create a new reference to the same array", function() {
-        it("should run without errors", function() {
+    describe("Create a new reference to the same array", function () {
+        it("should run without errors", function () {
             const firstArray = [1, 2, 3];
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            const secondArray = firstArray;
             ////////////////////////////////////////////////////////////////////
 
             expect(secondArray).to.eql([1, 2, 3]);
@@ -202,14 +209,14 @@ describe("basics", function() {
         });
     });
 
-    describe("Create an actual copy of an array", function() {
-        it("should run without errors", function() {
+    describe("Create an actual copy of an array", function () {
+        it("should run without errors", function () {
             const firstArray = [1, 2, 3];
 
             ////////////////////////////////////////////////////////////////////
             // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
             // ✏️ ADD CODE HERE ✏️
-
+            const secondArray = Array
             ////////////////////////////////////////////////////////////////////
 
             expect(firstArray).to.eql([1, 2, 3]);
@@ -225,12 +232,13 @@ describe("basics", function() {
         });
     });
 
-    describe("Create an array with an initial length", function() {
-        it("should run without errors", function() {
+    describe("Create an array with an initial length", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
             // ✏️ ADD CODE HERE ✏️
-
+            var longArray = new Array(100);
+            console.log(longArray.length);
             ////////////////////////////////////////////////////////////////////
 
             expect(longArray).to.be.instanceOf(Array);
@@ -240,14 +248,15 @@ describe("basics", function() {
         });
     });
 
-    describe("Weird casting rules", function() {
-        it("should run without errors", function() {
+    describe("Weird casting rules", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // We need two variables with two different types.
             // By observing their casting behavior in the tests below, you can find
             // out the required types.
             // ✏️ ADD CODE HERE ✏️
-
+            const firstVariable = 1 + 2;
+            const secondVariable = '1';
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof firstVariable).to.equal("number");
@@ -259,15 +268,19 @@ describe("basics", function() {
         });
     });
 
-    describe("A falsy string", function() {
-        it("should run without errors", function() {
+    describe("A falsy string", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // Can you find a string that casts to `false` in an if() statement?
             // ✏️ ADD CODE HERE ✏️
-
+            const falsyString = "";
+            if (falsyString) {
+                console.log("falseystring is not falsey")
+            }
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof falsyString).to.equal("string");
+
             if (falsyString) {
                 throw new Error(
                     "if() has been executed: falsyString is not falsy."
@@ -276,8 +289,8 @@ describe("basics", function() {
         });
     });
 
-    describe("Falsy numbers", function() {
-        it("should run without errors", function() {
+    describe("Falsy numbers", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // Can you find two different numbers that each cast to `false` in an if() statement?
             // ✏️ ADD CODE HERE ✏️
@@ -300,14 +313,18 @@ describe("basics", function() {
         });
     });
 
-    describe("A falsy object?", function() {
-        it("should run without errors", function() {
+    describe("A falsy object?", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // Can you find a value that is typeof "object" but also casts to `false`?
             // ✏️ ADD CODE HERE ✏️
-
+           
+           
             ////////////////////////////////////////////////////////////////////
-
+            var falseyThing = null;
+            if (falseyThing) {
+                Console.log("falseything is")
+            }
             expect(typeof falsyThing).to.equal("object");
             if (falsyThing) {
                 throw new Error(
@@ -317,8 +334,8 @@ describe("basics", function() {
         });
     });
 
-    describe("Accessing keys with the bracket notation", function() {
-        it("should run without errors", function() {
+    describe("Accessing keys with the bracket notation", function () {
+        it("should run without errors", function () {
             const object = {
                 firstProperty: 1,
                 secondProperty: 2
@@ -344,13 +361,13 @@ describe("basics", function() {
         });
     });
 
-    describe("Circular reference", function() {
-        it("should run without errors", function() {
+    describe("Circular reference", function () {
+        it("should run without errors", function () {
             ////////////////////////////////////////////////////////////////////
             // You can create objects that reference themselves.
             // But you need two steps to do it.
             // ✏️ ADD CODE HERE ✏️
-
+            
             ////////////////////////////////////////////////////////////////////
 
             expect(object.object).to.equal(object);
