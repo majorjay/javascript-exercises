@@ -28,7 +28,7 @@ describe("arrays", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE. USE THE STANDARD LIB, NO LOOPS! ✏️
-
+            const popped = array.pop();
             ////////////////////////////////////////////////////////////////////
 
             expect(removeLastItem()).to.equal("d");
@@ -523,7 +523,9 @@ describe("arrays", function() {
         it("should run without errors", function() {
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE. USE THE STANDARD LIB, NO LOOPS! ✏️
-
+        empty.join();
+        a.join("");
+        abc.join("");
             ////////////////////////////////////////////////////////////////////
 
             const empty = arrayToString([]);

@@ -14,7 +14,7 @@ describe("functions", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+    function myFunction(){}
             ////////////////////////////////////////////////////////////////////
         });
     });
@@ -27,7 +27,7 @@ describe("functions", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            const myFunction = () =>
             ////////////////////////////////////////////////////////////////////
 
             myFunction(); // myFunction should be callable now
@@ -40,7 +40,7 @@ describe("functions", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            
             ////////////////////////////////////////////////////////////////////
 
             if (myFunction !== otherFunction) {
@@ -165,6 +165,7 @@ describe("functions", function() {
             // You're not allowed to define a new function here.
             // If you call getContext() here, you're a cheater! :)
             // ✏️ ADD CODE HERE ✏️
+            getContext=getContext.bind(differentContext);
 
             ////////////////////////////////////////////////////////////////////
 
@@ -349,9 +350,12 @@ describe("functions", function() {
                 ////////////////////////////////////////////////////////////////////
                 // Uh-oh, the function 'breakTheLoop' calls itself recursively (see below).
                 // There are two possible solutions that break the loop. Can you find both?
-                // ✏️ ADD CODE HERE ✏️
-
-                ////////////////////////////////////////////////////////////////////
+                // ✏️ ADD CODE HERE ✏
+                do {
+                    if (doSomething) break;
+                    } while (true);
+                    
+            /////////////////////////////////////////////////////////////////
 
                 breakTheLoop(); // Recursive call
             }
